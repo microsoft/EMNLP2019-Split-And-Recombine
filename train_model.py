@@ -19,8 +19,6 @@ from model.follow_up import FollowUpSnippetModel
 import json
 import argparse
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '3'
-
 
 def setup_arguments():
     parser = argparse.ArgumentParser(description='Training the FollowUpSnippet Model')
