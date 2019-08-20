@@ -42,7 +42,7 @@ def download_dataset():
         print("Successfully unzip the FollowUp dataset and process it into `data_processed` and `data`.")
     finally:
         os.remove(store_zip_file)
-        os.rmdir(store_zip_folder)
+        shutil.rmtree(store_zip_folder)
 
 
 def download_glove_embedding():
@@ -75,7 +75,7 @@ def download_glove_embedding():
         num_bars = int(file_size / chunk_size)
 
         with open(store_zip_file, 'wb') as fp:
-            for chunk in tqdm.tqdm_notebook(
+            for chunk in tqdm.tqdm(
                     r.iter_content(chunk_size=chunk_size)
                     , total=num_bars
                     , unit='KB'

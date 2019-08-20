@@ -27,9 +27,12 @@ The main requirement of our code base is as following:
 - allennlp == 0.8.2
 - pytorch >= 0.4.0
 - nltk >= 3.4.3
-- jupyter >= 1.0.0
 
-You could install them via `pip` commands. We recommend you to install `pytorch` first, and then `allennlp`.
+You could install them via `pip` commands. We recommend you to install `pytorch` first, and then `allennlp`. Or you could install by `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
 
 # Preprocess
 
@@ -61,7 +64,7 @@ Once the data ready, we can train a pre-training model as stated in the paper us
 ```bash
 python train_model.py \
        --store_folder=pretrain \
-       --learning_rate=1e-3 \ 
+       --learning_rate=1e-3 \
        --margin=0.3 \
        --epoch=20 \
        --serialization_dir=split_and_recombine
@@ -74,7 +77,7 @@ Then we could train the Split-And-Recombine model. The training script will use 
 ```bash
 python train_model.py \
        --store_folder=reinforce \
-       --learning_rate=1e-4 
+       --learning_rate=1e-4 \
        --margin=0.3 \
        --patience=30 \
        --epoch=80 \
@@ -83,7 +86,7 @@ python train_model.py \
 
 # Result
 
-Expected result is as stated in the paper, where BLEU is ~67.05(+-1.05) and Symbol Acc is ~54.00(+-1.09). The training will last ~6 hours on a `Tesla M40` GPU. One run experiment by the author is as (the plot includes the result on pre-training):
+Expected result is as stated in the paper, where BLEU is ~67.05(+-1.05) and Symbol Acc is ~54.00(+-1.09). The training will last ~6 hours on a `Tesla M40` GPU. We provide partial log information in `log.txt` for check. And the dev performance curve is as (the plot includes the result on pre-training):
 
 ![](misc/plot.png)
 
@@ -91,7 +94,7 @@ Expected result is as stated in the paper, where BLEU is ~67.05(+-1.05) and Symb
 
 If you use the code, please consider citing our paper:
 
-```bash
+```
 @inproceedings{qian2019star,
   title={A Split-and-Recombine Approach for Follow-up Query Analysis},
   author={Qian, Liu and Bei, Chen and Haoyan, Liu and Jian-Guang, Lou and Lei, Fang and Bin, Zhou and Dongmei, Zhang},
