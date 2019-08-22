@@ -113,10 +113,10 @@ Once the data ready, we can train a pre-training model as stated in the paper us
 
 ```bash
 python train_model.py \
-       --store_folder=pretrain \
-       --learning_rate=1e-3 \
-       --margin=0.3 \
-       --epoch=20 \
+       --training_mode = pretrain \
+       --learning_rate = 1e-3 \
+       --margin = 0.3 \
+       --epoch = 20 \
        --serialization_dir=split_and_recombine
 ```
 
@@ -126,12 +126,12 @@ Then we could train the Split-And-Recombine model. The training script will use 
 
 ```bash
 python train_model.py \
-       --store_folder=reinforce \
-       --learning_rate=1e-4 \
-       --margin=0.3 \
-       --patience=30 \
-       --epoch=80 \
-       --rl_basic=split_and_recombine
+       --training_mode = reinforce \
+       --learning_rate = 1e-4 \
+       --margin = 0.3 \
+       --patience = 30 \
+       --epoch = 80 \
+       --rl_basic = split_and_recombine
 ```
 
 # Result
