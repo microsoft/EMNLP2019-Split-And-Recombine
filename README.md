@@ -11,6 +11,7 @@ In this paper, we propose to achieve context-dependent semantic parsing via perf
 - [Pretrain Model](#pretrain)
 - [Train Model via Reinforcement Learning](#train)
 - [Expected Result](#result)
+- [Cite](#cite)
 
 # Setup
 
