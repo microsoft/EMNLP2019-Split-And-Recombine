@@ -4,7 +4,17 @@ This is the official code for our paper "A Split-and-Recombine Approach for Foll
 
 In this paper, we propose to achieve context-dependent semantic parsing via performing follow-up query analysis, which aims to restate context-dependent natural language queries with contextual information. To accomplish the task, we propose the approach *Split-And-Recombine(StAR)*, a novel approach with a well-designed two-phase process. 
 
+# Content
+- [Setup](#setup)
+- [Preprocess Data](#preprocess)
+- [Training Arguments](#arguments)
+- [Pretrain Model](#pretrain)
+- [Train Model via Reinforcement Learning](#train)
+- [Expected Result](#result)
+
 # Setup
+
+### Python Environment
 
 First of all, you should setup a python environment. This code base has been tested under python 3.x, and we officially support python 3.7.
 
@@ -15,6 +25,7 @@ python -m pip install virtualenv
 virtualenv venv
 ```
 
+### Activate Virutal Environment
 Then you should activate the environment to install the dependencies. You could achieve it via using the command as below. (Please change $ENV_FOLDER to your own virtualenv folder path, e.g. venv)
 
 ```bash
@@ -22,17 +33,56 @@ $ENV_FOLDER\Scripts\activate.bat (Windows)
 source $ENV_FOLDER/bin/activate (Linux)
 ```
 
+### Install Dependencies
+
 The main requirement of our code base is as following:
 
 - allennlp == 0.8.2
 - pytorch >= 0.4.0
 - nltk >= 3.4.3
 
-You could install them via `pip` commands. We recommend you to install `pytorch` first, and then `allennlp`. Or you could install by `requirements.txt`:
+You could install them via `pip` commands. We recommend you to install `pytorch` first. You could follow this [guide](https://pytorch.org/get-started/locally/). Our code base can be trained on GPU/CPU as you like because the bottleneck is on computing the reward of reinforcement learning. If you want to speed up the training and you have enough CPU cores, you can manually modify the number of threads or make the reward collects from parallel processes at [here](https://github.com/microsoft/EMNLP2019-Split-And-Recombine/blob/95c11f97137d6592c27febe92f193055db3e119f/model/follow_up.py#L388).
+
+Then you could install other dependencies by `requirements.txt`:
 
 ```bash
 pip install -r requirements.txt
 ```
+
+
+# Arguments
+
+All command arguments are list as following:
+```
+usage: train_model.py [-h] [--learning_rate LEARNING_RATE] --store_folder
+                      {pretrain,reinforce}
+                      [--serialization_dir SERIALIZATION_DIR] [--seed SEED]
+                      [--rl_basic RL_BASIC] --margin MARGIN
+                      [--patience PATIENCE]
+                      [--validation_metric {overall,symbol,bleu}]
+                      [--epoch EPOCH]
+
+Training the FollowUpSnippet Model
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --learning_rate LEARNING_RATE
+                        learning rate for reinforcement learning or pretrain
+  --training_mode {pretrain,reinforce}
+                        Specify the training mode from pretrain or reinforce.
+  --serialization_dir SERIALIZATION_DIR
+                        The checkpoint folder which stores all training
+                        states/model states and metrics.
+  --seed SEED           The seed for reproducing the experiments.
+  --rl_basic RL_BASIC   pretrained checkpoint dir for reinforcement
+                        learning training
+  --margin MARGIN       margin hyper-parameter for margin loss.
+  --patience PATIENCE   patience of validation.
+  --validation_metric {overall,symbol,bleu}
+                        metric keeps the best model in validation.
+  --epoch EPOCH         maximum training epochs
+```
+
 
 # Preprocess
 
@@ -57,7 +107,7 @@ Successfully unzip `glove.zip` into `glove` folder.
 100%|██████████| 1000/1000 [00:00<00:00, 9142.40it/s]
 ```
 
-# Pretraining model
+# Pretrain
 
 Once the data ready, we can train a pre-training model as stated in the paper using processed data `data_processed`. For windows users, you could replace `\ ` with `^` and it will work.
 
@@ -70,7 +120,7 @@ python train_model.py \
        --serialization_dir=split_and_recombine
 ```
 
-# Reinforcement Learning model
+# Train
 
 Then we could train the Split-And-Recombine model. The training script will use the best model state in `pretrain` folder automatically. The default validation metric is `overall`, the average of symbol accuracy and bleu score.
 
