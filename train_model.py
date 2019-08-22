@@ -24,7 +24,7 @@ def setup_arguments():
     parser = argparse.ArgumentParser(description='Training the FollowUpSnippet Model')
     parser.add_argument('--learning_rate', type=float, default=1e-4,
                         help='learning rate for reinforcement learning or pretrain')
-    parser.add_argument('--store_folder', choices=['pretrain', 'reinforce'], required=True,
+    parser.add_argument('--training_mode', choices=['pretrain', 'reinforce'], required=True,
                         help='Specify the checkpoint folder for model.')
     parser.add_argument('--serialization_dir', default='split_and_recombine_model',
                         help='The actual checkpoint folder which stores all training state/model state and metrics.')
