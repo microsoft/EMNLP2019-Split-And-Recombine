@@ -11,6 +11,7 @@ In this paper, we propose to achieve context-dependent semantic parsing via perf
 - [Pretrain Model](#pretrain)
 - [Train Model via Reinforcement Learning](#train)
 - [Expected Result](#result)
+- [Question](#question)
 - [Cite](#cite)
 - [Contributing](#contributing)
 
@@ -142,9 +143,15 @@ Expected result is as stated in the paper, where BLEU is ~67.05(+-1.05) and Symb
 
 ![](misc/plot.png)
 
+# Question
+
+If you have any question or find any bug, please go ahead and [open an issue](https://github.com/microsoft/EMNLP2019-Split-And-Recombine/issues). Issues are an acceptable discussion forum as well.
+
+If you want to concat the author, please email: qian DOT liu AT buaa.edu.cn 
+
 # Cite
 
-If you use the code, please consider citing our paper:
+If you find our code useful, please consider citing our paper:
 
 ```
 @inproceedings{qian2019star,
