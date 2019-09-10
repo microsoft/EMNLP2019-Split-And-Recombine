@@ -1,5 +1,5 @@
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT license.
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT license.
 
 from typing import List
 from overrides import overrides
