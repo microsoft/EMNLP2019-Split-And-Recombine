@@ -12,6 +12,7 @@ In this paper, we propose to achieve context-dependent semantic parsing via perf
 - [Train Model via Reinforcement Learning](#train)
 - [Expected Result](#result)
 - [Cite](#cite)
+- [Question](#question)
 - [Contributing](#contributing)
 
 # Setup
@@ -154,6 +155,12 @@ If you use the code, please consider citing our paper:
   year={2019}
 }
 ```
+# Question
+
+If you have any question or find any bug, please go ahead and [open an issue](https://github.com/microsoft/EMNLP2019-Split-And-Recombine/issues). Issues are an acceptable discussion forum as well.
+
+If you want to concat the author, please email: qian DOT liu AT buaa.edu.cn 
+
 
 # Contributing
 
