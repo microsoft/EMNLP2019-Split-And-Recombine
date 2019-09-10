@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 from allennlp.data.token_indexers import TokenCharactersIndexer
 from allennlp.data.token_indexers import SingleIdTokenIndexer
 from allennlp.data.tokenizers import CharacterTokenizer

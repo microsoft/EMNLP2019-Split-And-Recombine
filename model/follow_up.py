@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 from typing import Dict, Optional, List, Any
 import numpy as np
 import torch

@@ -1,4 +1,5 @@
-
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 class BindTrieNode(object):
     def __init__(self):

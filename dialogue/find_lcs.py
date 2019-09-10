@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 # Find Long Common String between Precedent Query & Follow-up Query
 import numpy as np
 import json

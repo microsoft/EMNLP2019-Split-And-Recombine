@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 from enum import Enum
 import math
 from typing import Dict, Any
