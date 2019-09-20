@@ -42,7 +42,7 @@ The main requirement of our code base is as following:
 
 - allennlp == 0.8.2
 - pytorch >= 0.4.0
-- nltk >= 3.4.3
+- nltk >= 3.4.5
 
 You could install them via `pip` commands. We recommend you to install `pytorch` first. You could follow this [guide](https://pytorch.org/get-started/locally/). Our code base can be trained on GPU/CPU as you like because the bottleneck is on computing the reward of reinforcement learning. If you want to speed up the training and you have enough CPU cores, you can manually modify the number of threads or make the reward collects from parallel processes at [here](https://github.com/microsoft/EMNLP2019-Split-And-Recombine/blob/95c11f97137d6592c27febe92f193055db3e119f/model/follow_up.py#L388).
 
