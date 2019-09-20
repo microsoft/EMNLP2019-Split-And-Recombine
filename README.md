@@ -1,6 +1,6 @@
 # Split-And-Recombine
 
-This is the official code for our paper "A Split-and-Recombine Approach for Follow-up Query Analysis"(EMNLP2019).
+This is the official code for our paper [A Split-and-Recombine Approach for Follow-up Query Analysis](https://arxiv.org/abs/1909.08905) (EMNLP2019).
 
 In this paper, we propose to achieve context-dependent semantic parsing via performing follow-up query analysis, which aims to restate context-dependent natural language queries with contextual information. To accomplish the task, we propose the approach *Split-And-Recombine(StAR)*, a novel approach with a well-designed two-phase process. 
 
