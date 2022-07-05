@@ -99,7 +99,7 @@ thinc==6.12.1
 toolz==0.10.0
 torch==1.2.0+cu92
 tqdm==4.34.0
-ujson==1.35
+ujson==5.4.0
 Unidecode==1.1.1
 urllib3==1.25.3
 wcwidth==0.1.7
